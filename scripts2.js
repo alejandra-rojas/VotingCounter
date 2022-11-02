@@ -27,14 +27,15 @@ const userHasVoted = localStorage.getItem('iHaveVoted', 'yes');
     
     // set firebase data
     el.addEventListener('click', function() {
-        if (userHasVoted === 'yes') {
-            alert("you already voted")
-        } else {
+        // if (userHasVoted === 'yes') {
+        //     alert("you already voted")
+        // } else {
             dDatabase.transaction(function(dCount) {
                 return (dCount || 0) + 1;
             });
-            localStorage.setItem('iHaveVoted', 'yes');
-        }
+            document.getElementById("plusOne").disabled = true
+        //     localStorage.setItem('iHaveVoted', 'yes');
+        // }
         
     });
 });
