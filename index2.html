@@ -50,7 +50,7 @@ rel="stylesheet" />
                 el.addEventListener('click', function() {
                     dDatabase.transaction(function(dCount) {
                         return (dCount || 0) + 1;
-                    }, {once : true});
+                    });
                 });
             });
         </script>
