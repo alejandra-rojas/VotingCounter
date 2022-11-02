@@ -11,49 +11,23 @@ rel="stylesheet" />
 </head>
 <body>
     <div class="container">
-        <div class="CountLike" id="Like Count">
+        <div class="CountLike" id="Art1 Votes">
             <button class="button button1">
             <i class="fa fa-heart"></i> Like <span class="counterStat">...</span>
             </button>
         </div>
+
+        <div class="CountLike" id="Art2 Votes">
+            <button class="button button1">
+            <i class="fa fa-heart"></i> Like <span class="counterStat">...</span>
+            </button>
+        </div>
+
     </div>
     
         <!-- Firebase script -->
         <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
-
-        <!-- Initialize Firebase -->
-        <script>
-            var config = {
-                apiKey: "AIzaSyBFd4ZQpffzs-i9TIkm7Y4VXNojTEk1WPw",
-                authDomain: "votecounter-c33c4.firebaseapp.com",
-                databaseURL: "https://votecounter-c33c4-default-rtdb.firebaseio.com",
-                storageBucket: "votecounter-c33c4.appspot.com",
-                messagingSenderId: "1035469983693"
-            };
-            firebase.initializeApp(config);
-        </script>
-    
-        <script type="text/javascript">
-            var dCounters = document.querySelectorAll('.CountLike');
-            [].forEach.call(dCounters, function(dCounter) {
-                var el = dCounter.querySelector('button');
-                var cId = dCounter.id;
-                var dDatabase = firebase.database().ref('Like Number Counter').child(cId);
-    
-                // get firebase data
-                dDatabase.on('value', function(snap) {
-                    var data = snap.val() || 0;
-                    dCounter.querySelector('span').innerHTML = data;
-                });
-    
-                // set firebase data
-                el.addEventListener('click', function() {
-                    dDatabase.transaction(function(dCount) {
-                        return (dCount || 0) + 1;
-                    });
-                });
-            });
-        </script>
+        <script src="scripts2.js"></script>
 </html>
 </body>
 </html>

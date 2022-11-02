@@ -1,34 +1,40 @@
+'use strict';
 
-    <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
-
-
-        var config = {
-            apiKey: "AIzaSyBFd4ZQpffzs-i9TIkm7Y4VXNojTEk1WPw",
+const config = {
+    apiKey: "AIzaSyBFd4ZQpffzs-i9TIkm7Y4VXNojTEk1WPw",
     authDomain: "votecounter-c33c4.firebaseapp.com",
-    projectId: "votecounter-c33c4",
+    databaseURL: "https://votecounter-c33c4-default-rtdb.firebaseio.com",
     storageBucket: "votecounter-c33c4.appspot.com",
-    messagingSenderId: "1035469983693",
-    appId: "1:1035469983693:web:6b9fe647c7a1072c45be84",
-    measurementId: "G-6ZDH6DT3HE"
-        };
-        firebase.initializeApp(config);
+    messagingSenderId: "1035469983693"
+};
 
-        var dCounters = document.querySelectorAll('.CountLike');
-        [].forEach.call(dCounters, function(dCounter) {
-            var el = dCounter.querySelector('button');
-            var cId = dCounter.id;
-            var dDatabase = firebase.database().ref('Like Number Counter').child(cId);
+firebase.initializeApp(config);
 
-            // get firebase data
-            dDatabase.on('value', function(snap) {
-                var data = snap.val() || 0;
-                dCounter.querySelector('span').innerHTML = data;
+const dCounters = document.querySelectorAll('.CountLike');
+const userHasVoted = localStorage.getItem('iHaveVoted', 'yes');
+
+
+[].forEach.call(dCounters, function(dCounter) {
+    const el = dCounter.querySelector('button');
+    const cId = dCounter.id;
+    const dDatabase = firebase.database().ref('Like Number Counter').child(cId);
+    
+    // get firebase data
+    dDatabase.on('value', function(snap) {
+        let data = snap.val() || 0;
+        dCounter.querySelector('span').innerHTML = data;
+    });
+    
+    // set firebase data
+    el.addEventListener('click', function() {
+        if (userHasVoted === 'yes') {
+            alert("you already voted")
+        } else {
+            dDatabase.transaction(function(dCount) {
+                return (dCount || 0) + 1;
             });
-
-            // set firebase data
-            el.addEventListener('click', function() {
-                dDatabase.transaction(function(dCount) {
-                    return (dCount || 0) + 1;
-                });
-            });
-        });
+            localStorage.setItem('iHaveVoted', 'yes');
+        }
+        
+    });
+});
