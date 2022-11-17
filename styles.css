@@ -8,7 +8,7 @@ body {
   background-color: darkseagreen;
   color: white;
   text-align: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Fredoka One", sans-serif;
 }
 
 .container {
@@ -45,7 +45,7 @@ button {
   padding: 10px;
   background-color: transparent;
   color: #1b244a;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Fredoka One", sans-serif;
 }
 
 .counter {
@@ -101,7 +101,8 @@ button:hover span {
 
 .counterStat {
   color: white;
-  font-size: 16px;
+  font-size: 19px;
+  font-weight: 200;
 }
 
 .alert {
