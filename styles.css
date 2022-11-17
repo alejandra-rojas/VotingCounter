@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #1b244a;
+  background-color: darkseagreen;
   color: white;
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -17,12 +17,12 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  column-gap: 3rem;
+  column-gap: 2rem;
 }
 
 .art {
-  width: 250px;
-  height: 250px;
+  width: 400px;
+  height: auto;
   background-color: #f94f6d;
 }
 
@@ -54,6 +54,7 @@ button {
 
 h3 {
   font-size: 2.7rem;
+  display: none;
 }
 
 h4 {
@@ -62,4 +63,75 @@ h4 {
   font-size: 5rem;
   padding: 2rem;
   margin-top: 20px;
+}
+
+.button {
+  width: 100%;
+  background-color: orangered;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+
+.button1 {
+  background-color: #f44336;
+  color: white;
+  border-radius: 20px;
+  margin-bottom: 25px;
+}
+
+.button:hover {
+  background-color: orange;
+  color: white;
+}
+
+button:hover i,
+button:hover span {
+  /* this works */
+  color: #f44336;
+}
+
+.counterStat {
+  color: white;
+  font-size: 16px;
+}
+
+.alert {
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+}
+
+.redalert {
+  padding: 15px;
+  border-radius: 4px;
+  color: beige;
+  background-color: red;
+}
+
+.invisible {
+  display: none;
+}
+
+.voted {
+  color: red;
+}
+
+.question {
+  font-size: 1rem;
+  color: #008cba;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
