@@ -24,6 +24,7 @@ body {
   width: 400px;
   height: auto;
   background-color: #f94f6d;
+  display: block;
 }
 
 .increase {

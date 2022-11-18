@@ -27,7 +27,8 @@ const userHasVoted = localStorage.getItem('iHaveVoted', 'yes');
     });
     
     // set firebase data
-    el.addEventListener('click', function() {
+    el.addEventListener('click', function(e) {
+
           if (userHasVoted) {
             let message = document.createElement('div');
             message.innerHTML = "You've already voted.";
@@ -36,6 +37,7 @@ const userHasVoted = localStorage.getItem('iHaveVoted', 'yes');
             setTimeout ( function () {
                 message.classList.add("invisible");
                 }, 1800);  
+            el.disabled = true;
 
          } else {
              dDatabase.transaction(function(dCount) {
@@ -52,4 +54,10 @@ const userHasVoted = localStorage.getItem('iHaveVoted', 'yes');
         
     });
 });
+
+
+document.addEventListener('click', function(e) {
+    console.log(e.target.dataset.share)
+})
+
 
