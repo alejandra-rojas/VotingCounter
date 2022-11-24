@@ -46,18 +46,34 @@ const userHasVoted = localStorage.getItem('iHaveVoted', 'yes');
             el.style.color = 'red'
             localStorage.setItem('iHaveVoted', 'yes');
             window.location.reload()
-            let div = document.createElement('div');
-            div.className = "alert";
-            div.innerHTML = "Thank you for voting!";
-            document.body.append(div);
+            // let div = document.createElement('div');
+            // div.className = "alert";
+            // div.innerHTML = "Thank you for voting!";
+            // document.body.append(div);
          }
         
     });
 });
 
-
 document.addEventListener('click', function(e) {
-    console.log(e.target.dataset.share)
+    console.log(e.target.dataset)
+    if (e.target.dataset === 'art2'){
+          
+    }
 })
 
 
+
+// document.addEventListener('click', function(e){
+//     if(e.target.dataset.like){
+//        handleLikeClick(e.target.dataset.like) 
+//     }
+//     else if(e.target.dataset.retweet){
+//         handleRetweetClick(e.target.dataset.retweet)
+//     }
+//     else if(e.target.dataset.reply){
+//         handleReplyClick(e.target.dataset.reply)
+//     }
+//     else if(e.target.id === 'tweet-btn'){
+//         handleTweetBtnClick()
+//     }
